@@ -48,7 +48,7 @@
 
 
  
-** STEP 6 — Build Docker Image**
+**STEP 6 — Build Docker Image**
  docker build -t spring-petclinic .
  Builds Docker image from Dockerfile. 
  <img width="1920" height="1080" alt="Screenshot (846)" src="https://github.com/user-attachments/assets/0cd00026-d763-4300-8a11-b60ecbc7c0be" />
