@@ -32,11 +32,13 @@
 
  
 **STEP 5 — Create Dockerfile**
+'''
  FROM openjdk:17-jdk-slim
  WORKDIR /app
  COPY target/*.jar app.jar
  EXPOSE 8080
  ENTRYPOINT ["java", "-jar", "app.jar"]
+ '''
  Explanation:
  • FROM: Base image with Java 17.
  • WORKDIR: Sets working directory to /app.
