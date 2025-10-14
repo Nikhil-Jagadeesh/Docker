@@ -1,0 +1,216 @@
+🧩 1️⃣ Planning Phase (Ideation and Requirements)
+
+Role: Product Owner / Business Analyst
+Tool: Jira
+
+Step 1: Create Stories
+
+The Product Owner gathers business requirements and breaks them down into user stories — small, actionable tasks that represent features or improvements.
+
+Each story includes:
+
+A brief description of the feature (e.g., “As a user, I want to reset my password using OTP”).
+
+Acceptance criteria, defining when the task is considered done.
+
+Priority and estimation, to plan sprint cycles.
+
+Tool: Jira
+
+Jira is an Agile project management tool used to create, track, and prioritize these user stories.
+
+It helps visualize work using Scrum boards or Kanban boards.
+
+Stories are grouped into sprints, and progress can be tracked using burn-down charts and dashboards.
+
+📈 Outcome: The development team gets a clear roadmap of features to build and release.
+
+💻 2️⃣ Development Phase (Coding and Collaboration)
+
+Role: Developers
+Tools: GitHub, IDEs (VS Code, IntelliJ)
+
+Step 2: Take User Stories
+
+Developers pick stories from Jira during sprint planning meetings.
+
+They break down tasks further and begin coding using their preferred IDE.
+
+Step 3: Commit Code to Git
+
+After coding and local testing, developers commit their changes to GitHub—a version control and collaboration platform.
+
+Git keeps track of all changes, enabling multiple developers to work on the same project without conflicts.
+
+Developers create branches for features or bug fixes (e.g., feature/login-api), merge them via Pull Requests (PRs), and conduct code reviews.
+
+Tool: GitHub
+
+Stores and versions all code.
+
+Integrates with CI/CD tools like Jenkins to trigger builds automatically after code pushes.
+
+Maintains transparency across teams via pull requests, issues, and wikis.
+
+📦 Outcome: Clean, version-controlled, and peer-reviewed source code ready for continuous integration.
+
+⚙️ 3️⃣ Build & Package Phase (Continuous Integration)
+
+Tools: Jenkins, JUnit, JaCoCo, SonarQube, JFrog Artifactory
+
+Step 4: Build Process
+
+Once code is pushed to GitHub, it triggers Jenkins, a CI/CD automation server.
+
+Jenkins pulls the latest code, compiles it, runs tests, and packages it into deployable artifacts.
+
+Tool: Jenkins
+
+Acts as the automation backbone for CI/CD.
+
+Manages pipelines for:
+
+Build automation
+
+Testing
+
+Deployment
+
+Uses plugins to connect to tools like GitHub, SonarQube, and Docker.
+
+Step 5: Code Quality and Testing
+
+Jenkins runs automated unit tests using JUnit, which ensures individual code units work as expected.
+
+JaCoCo analyzes code coverage—how much of the codebase is tested.
+
+SonarQube performs static code analysis, checking for code smells, bugs, vulnerabilities, and security flaws.
+
+Example: It flags hard-coded credentials, unused variables, or inefficient loops.
+
+Tool: JFrog Artifactory
+
+Once a build passes all quality gates, Jenkins stores the build output (e.g., .jar, .war, .zip files) in Artifactory, a universal binary repository.
+
+Artifactory ensures consistent and versioned artifact management for deployments.
+
+📦 Outcome: Verified and versioned artifacts ready to be deployed in different environments.
+
+🚀 4️⃣ Deployment to Development Environment
+
+Tools: Docker, Cloud Platform (AWS, Azure, GCP)
+
+Step 6: Deploy to Dev Environment
+
+Jenkins uses Docker to containerize the application.
+
+Docker packages the app and its dependencies into portable containers, ensuring it runs the same in all environments.
+
+The container is deployed to a Development environment (often a cloud-based test server).
+
+Tool: Docker
+
+Simplifies deployments with containers that can be started, stopped, or rolled back easily.
+
+Allows multiple environments (Dev, QA, UAT, Prod) to have identical configurations.
+
+📍 Outcome: The app is deployed for developers to validate integration and functionality.
+
+🧪 5️⃣ Test Phase (Quality Assurance)
+
+Roles: QA Engineers, Test Automation Team
+Tools: Docker, Cloud, Jenkins
+
+Step 7: QA Testing
+
+The build moves to the QA Environment, where quality engineers perform:
+
+Regression Testing: To ensure old features still work.
+
+Performance Testing: To check app speed and scalability.
+
+Integration Testing: To verify services interact correctly.
+
+Step 8: UAT Testing
+
+After QA approval, the build is moved to the User Acceptance Testing (UAT) environment.
+
+Business stakeholders and end-users test features for usability, design, and alignment with requirements.
+
+📊 Outcome: The build is validated for both technical and business requirements, ready for production release.
+
+☁️ 6️⃣ Release / Production Phase
+
+Roles: Site Reliability Engineer (SRE), DevOps Team
+Tools: Docker, Prometheus, SkyWalking, Cloud
+
+Step 9: Production Deployment
+
+The final, tested container is deployed to the Production Environment (live system).
+
+This environment serves real users and must maintain 99.9%+ uptime.
+
+Tool: Prometheus
+
+Prometheus is a monitoring and alerting system that collects metrics (CPU, memory, request rate, latency, etc.) from servers and containers.
+
+Alerts are configured for critical thresholds — for example, “if CPU usage > 90% for 5 minutes, trigger an alert.”
+
+Tool: SkyWalking
+
+SkyWalking is an APM (Application Performance Monitoring) and tracing tool used to monitor distributed microservices.
+
+It helps visualize request paths, detect bottlenecks, and trace latency across multiple services.
+
+SRE Role
+
+Site Reliability Engineers continuously monitor system performance, handle alerts, and manage incident escalation.
+
+They also ensure deployment reliability via:
+
+Canary Deployments: Gradually releasing features to a small set of users before full rollout.
+
+Feature Toggles: Enabling/disabling features dynamically.
+
+A/B Testing: Comparing feature variations to optimize user experience.
+
+📈 Outcome: Application is live, stable, monitored, and continuously improved.
+
+🔁 7️⃣ Continuous Feedback and Monitoring
+
+Looping Back to Planning
+
+Monitoring insights and production feedback are shared with Product Owners.
+
+Bugs or enhancement requests are logged as new Jira stories.
+
+The cycle starts again, continuously improving quality and velocity.
+
+⚙️ Summary: Toolchain Overview
+Phase	Role	Tool(s)	Purpose
+Plan	Product Owner	Jira	Define user stories, manage backlog
+Develop	Developer	GitHub	Code versioning, collaboration
+Build	Jenkins, JUnit, JaCoCo, SonarQube	CI pipeline, testing, code quality	
+Package	JFrog Artifactory	Store build artifacts for deployment	
+Deploy	Docker	Containerize and deploy to environments	
+Test	QA, UAT Teams	Docker, Cloud	Validate functionality and business needs
+Release	SRE	Prometheus, SkyWalking	Monitor, alert, trace performance
+🧠 End-to-End Flow Recap
+
+Idea → Converted into Jira stories.
+
+Code written → Committed to GitHub.
+
+CI/CD pipeline → Triggered via Jenkins.
+
+Quality checked → With JUnit, JaCoCo, SonarQube.
+
+Artifacts stored → In JFrog Artifactory.
+
+Deployed → As Docker containers to multiple environments.
+
+Tested → By QA & UAT teams.
+
+Released → To Production and monitored with Prometheus and SkyWalking.
+
+Feedback → Goes back to Jira for the next development cycle.
